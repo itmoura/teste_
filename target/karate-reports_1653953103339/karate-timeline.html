@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"starwars\/starwars[1:6]","start":1653952984757,"end":1653952987568,"title":"starwars\/starwars[1:6] 20:23:04.757-20:23:07.568 Verificar se api do star wars está de pé"},{"id":2,"group":1,"content":"starwars\/starwars[2:11]","start":1653952987600,"end":1653952988553,"title":"starwars\/starwars[2:11] 20:23:07.600-20:23:08.553 Verficar se pessoa 123 existe"},{"id":3,"group":1,"content":"starwars\/starwars[3:17]","start":1653952988570,"end":1653952989506,"title":"starwars\/starwars[3:17] 20:23:08.570-20:23:09.506 Verificar está retornando nome correto"},{"id":4,"group":1,"content":"starwars\/starwars[4:25]","start":1653952989523,"end":1653952990459,"title":"starwars\/starwars[4:25] 20:23:09.523-20:23:10.459 Verificar o retorno com sucesso da API com dados válidos da requisição"},{"id":5,"group":1,"content":"starwars\/starwars[5:32]","start":1653952990475,"end":1653952992333,"title":"starwars\/starwars[5:32] 20:23:10.475-20:23:12.333 Verificar o retorno com sucesso da API com dados válidos da requisição e verificar se o filme está apontando para o item correto"},{"id":6,"group":1,"content":"starwars\/starwars[6:45]","start":1653952992350,"end":1653952996566,"title":"starwars\/starwars[6:45] 20:23:12.350-20:23:16.566 Cadastrando usuário idrugs","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

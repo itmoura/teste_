@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4},{"content":"pool-1-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"examples\/starwars\/starwars[1:7]","start":1653953688860,"end":1653953691620,"title":"examples\/starwars\/starwars[1:7] 20:34:48.860-20:34:51.620 Verificar se api do star wars está de pé"},{"id":2,"group":2,"content":"examples\/starwars\/starwars[2:12]","start":1653953688845,"end":1653953691682,"title":"examples\/starwars\/starwars[2:12] 20:34:48.845-20:34:51.682 Verficar se pessoa 123 existe"},{"id":3,"group":3,"content":"examples\/starwars\/starwars[3:18]","start":1653953688845,"end":1653953691682,"title":"examples\/starwars\/starwars[3:18] 20:34:48.845-20:34:51.682 Verificar está retornando nome correto"},{"id":4,"group":4,"content":"examples\/starwars\/starwars[4:26]","start":1653953688845,"end":1653953691698,"title":"examples\/starwars\/starwars[4:26] 20:34:48.845-20:34:51.698 Verificar o retorno com sucesso da API com dados válidos da requisição"},{"id":5,"group":5,"content":"examples\/starwars\/starwars[5:33]","start":1653953688845,"end":1653953693295,"title":"examples\/starwars\/starwars[5:33] 20:34:48.845-20:34:53.295 Verificar o retorno com sucesso da API com dados válidos da requisição e verificar se o filme está apontando para o item correto"},{"id":6,"group":1,"content":"examples\/starwars\/starwars[6:46]","start":1653953691636,"end":1653953695860,"title":"examples\/starwars\/starwars[6:46] 20:34:51.636-20:34:55.860 Cadastrando usuário idrugs","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
